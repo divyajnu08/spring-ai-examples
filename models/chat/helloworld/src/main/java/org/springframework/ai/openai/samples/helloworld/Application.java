@@ -1,6 +1,7 @@
 package org.springframework.ai.openai.samples.helloworld;
 
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.prompt.ChatOptions;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,7 +18,7 @@ public class Application {
     @Bean
     CommandLineRunner cli(ChatClient.Builder builder, ConfigurableApplicationContext context) {
         return args -> {
-            var chat = builder.build();
+            var chat = builder.defaultOptions(ChatOptions.builder().model("gpt-5-nano").build()).build();
             System.out.println("\nSpring AI Hello World!");
             System.out.println("USER: Tell me a joke");
             System.out.println("ASSISTANT: " + 

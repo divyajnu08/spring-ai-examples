@@ -151,9 +151,8 @@ public class PromptEngineeringApplication {
 				Sentiment:
 				""")
 				.options(ChatOptions.builder()
-						.model("claude-3-7-sonnet-latest")
-						.temperature(0.1)
-						.maxTokens(5)
+						.model("gpt-5-nano")
+						.temperature(1.0)
 						.build())
 				.call()
 				.entity(Sentiment.class);
@@ -205,10 +204,8 @@ public class PromptEngineeringApplication {
 
 				""")
 				.options(ChatOptions.builder()
-						.model("claude-3-7-sonnet-latest")
-						.temperature(0.1)
-						// Increasing the token limit to accommodate the need for a longer response.
-						.maxTokens(250)
+						.model("gpt-5-nano")
+						.temperature(1.0)
 						.build())
 				.call()
 				.content();
@@ -247,11 +244,8 @@ public class PromptEngineeringApplication {
 						Sentiment:
 						""")
 				.options(ChatOptions.builder()
-						.model("claude-3-7-sonnet-latest")
+						.model("gpt-5-nano")
 						.temperature(1.0)
-						.topK(40)
-						.topP(0.8)
-						.maxTokens(5)
 						.build())
 				.call()
 				.content();
@@ -298,11 +292,8 @@ public class PromptEngineeringApplication {
 						JSON Response:
 						""")
 				.options(ChatOptions.builder()
-						.model("claude-3-7-sonnet-latest")
+						.model("gpt-5-nano")
 						.temperature(1.0)
-						.topK(40)
-						.topP(0.8)
-						.maxTokens(1024)
 						.build())
 				.call()
 				.content();
@@ -337,11 +328,8 @@ public class PromptEngineeringApplication {
 						JSON Response:
 						""")
 				.options(ChatOptions.builder()
-						.model("claude-3-7-sonnet-latest")
+						.model("gpt-5-nano")
 						.temperature(1.0)
-						.topK(40)
-						.topP(0.8)
-						.maxTokens(1024)
 						.build())
 				.call()
 				.entity(MovieReviews.class);
@@ -367,11 +355,8 @@ public class PromptEngineeringApplication {
 						Travel Suggestions:
 						""")
 				.options(ChatOptions.builder()
-						.model("claude-3-7-sonnet-latest")
+						.model("gpt-5-nano")
 						.temperature(1.0)
-						.topK(40)
-						.topP(0.8)
-						.maxTokens(1024)
 						.build())
 				.call()
 				.content();
@@ -399,11 +384,8 @@ public class PromptEngineeringApplication {
 						Travel Suggestions:
 						""")
 				.options(ChatOptions.builder()
-						.model("claude-3-7-sonnet-latest")
+						.model("gpt-5-nano")
 						.temperature(1.0)
-						.topK(40)
-						.topP(0.8)
-						.maxTokens(1024)
 						.build())
 				.call()
 				.content();
@@ -426,11 +408,8 @@ public class PromptEngineeringApplication {
 						""")
 						.param("context", "You are writing for a blog about retro 80's arcade video games."))
 				.options(ChatOptions.builder()
-						.model("claude-3-7-sonnet-latest")
+						.model("gpt-5-nano")
 						.temperature(1.0)
-						.topK(40)
-						.topP(0.8)
-						.maxTokens(1024)
 						.build())
 				.call()
 				.content();
@@ -445,11 +424,8 @@ public class PromptEngineeringApplication {
 		// (SpringAI tip) Set common options for the chat client.
 		var chatClient = chatClientBuilder
 				.defaultOptions(ChatOptions.builder()
-						.model("claude-3-7-sonnet-latest")
+						.model("gpt-5-nano")
 						.temperature(1.0)
-						.topK(40)
-						.topP(0.8)
-						.maxTokens(1024)
 						.build())
 				.build();
 
@@ -559,11 +535,8 @@ public class PromptEngineeringApplication {
 						""")
 						.param("email", email))
 				.options(ChatOptions.builder()
-						.model("claude-3-5-haiku-latest")
+						.model("gpt-5-nano")
 						.temperature(1.0)
-						.topK(60)
-						.topP(0.9)
-						.maxTokens(1024)
 						.build())
 				.call()
 				.entity(EmailClassification.class);
@@ -612,11 +585,8 @@ public class PromptEngineeringApplication {
 							""")
 							.param("email", email))
 					.options(ChatOptions.builder()
-							.model("claude-3-5-haiku-latest")
+							.model("gpt-5-nano")
 							.temperature(1.0)
-							.topK(60)
-							.topP(0.9)
-							.maxTokens(1024)
 							.build())
 					.call()
 					.entity(EmailClassification.class);
@@ -652,7 +622,7 @@ public class PromptEngineeringApplication {
 						3. Rate the move's strength from 1-10
 						""")
 				.options(ChatOptions.builder()
-						.temperature(0.7)
+						.temperature(1.0)
 						.build())
 				.call()
 				.content();
@@ -775,11 +745,8 @@ public class PromptEngineeringApplication {
 						the same meaning.
 						""")
 				.options(ChatOptions.builder()
-						.model("claude-3-7-sonnet-latest")
+						.model("gpt-5-nano")
 						.temperature(1.0)
-						.topK(40)
-						.topP(0.9)
-						.maxTokens(1024)
 						.build())
 				.call()
 				.content();
@@ -799,9 +766,6 @@ public class PromptEngineeringApplication {
 				.options(ChatOptions.builder()
 						.model("claude-3-7-sonnet-latest")
 						.temperature(1.0)
-						.topK(40)
-						.topP(0.9)
-						.maxTokens(1024)
 						.build())
 				.call()
 				.content();
@@ -822,10 +786,8 @@ public class PromptEngineeringApplication {
 						files inside by prepending the name draft to the file name.
 						""")
 				.options(ChatOptions.builder()
-						.model("claude-3-7-sonnet-latest")
-						.temperature(0.1)
-						.topP(1.0)
-						.maxTokens(1024)
+						.model("gpt-5-nano")
+						.temperature(1.0)
 						.build())
 				.call()
 				.content();
@@ -864,10 +826,8 @@ public class PromptEngineeringApplication {
 						```
 						""").param("code", code))
 				.options(ChatOptions.builder()
-						.model("claude-3-7-sonnet-latest")
-						.temperature(0.1)
-						.topP(1.0)
-						.maxTokens(1024)
+						.model("gpt-5-nano")
+						.temperature(1.0)
 						.build())
 				.call()
 				.content();
@@ -906,10 +866,8 @@ public class PromptEngineeringApplication {
 						{code}
 						""").param("code", bashCode))
 				.options(ChatOptions.builder()
-						.model("claude-3-7-sonnet-latest")
-						.temperature(0.1)
-						.topP(1.0)
-						.maxTokens(1024)
+						.model("gpt-5-nano")
+						.temperature(1.0)
 						.build())
 				.call()
 				.content();
